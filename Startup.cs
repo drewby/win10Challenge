@@ -6,6 +6,7 @@ using Microsoft.AspNet.Builder;
 using Microsoft.AspNet.Hosting;
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Routing;
+using Microsoft.AspNet.StaticFiles;
 using Microsoft.Framework.DependencyInjection;
 
 namespace win10Challenge
@@ -29,8 +30,11 @@ namespace win10Challenge
         // Configure is called after ConfigureServices is called.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            var myProvider = new FileExtensionContentTypeProvider();
+            myProvider.Mappings.Add(".json", "application/json");
+
             // Configure the HTTP request pipeline.
-            app.UseStaticFiles();
+            app.UseStaticFiles(new StaticFileOptions() { ContentTypeProvider = myProvider});
 
             // Add MVC to the request pipeline.
             app.UseMvc();

@@ -2,29 +2,21 @@
 
 /**
  * @ngdoc overview
- * @name win10ChallengeApp
+ * @name win10App
  * @description
- * # win10ChallengeApp
+ * # win10App
  *
  * Main module of the application.
  */
 angular
-  .module('win10ChallengeApp', [
-    'ngAnimate',
-    'ngAria',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
+  .module('win10App')
   .config(function ($routeProvider) {
     $routeProvider
       .when('/', {
         templateUrl: 'views/main.html',
         controller: 'MainCtrl'
       })
-      .when('/vote', {
+      .when('/vote/:contestantId', {
         templateUrl: 'views/vote.html',
         controller: 'VoteCtrl'
       })
@@ -32,3 +24,4 @@ angular
         redirectTo: '/'
       });
   });
+

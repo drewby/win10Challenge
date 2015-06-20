@@ -1,47 +1,11 @@
 <div class="jumbotron">
   <ul class="contestants">
-    <li>
-      <a href="#/vote">
-        <img src="images/headshot.jpg" alt="" class="headshot">
+    <li ng-repeat="contestant in contestants">
+      <a href="#/vote/{{contestant.id}}">
+        <img ng-src="{{contestant.headshotUrl}}" alt="" class="headshot">
         <div class="container">
-          <div class="jpname">ロビンス　ドルー</div>
-          <div class="rname">Drew Robbins</div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="#/vote">
-        <img src="images/headshot.jpg" alt="" class="headshot">
-        <div class="container">
-          <div class="jpname">ロビンス　ドルー</div>
-          <div class="rname">Drew Robbins</div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="#/vote">
-        <img src="images/headshot.jpg" alt="" class="headshot">
-        <div class="container">
-          <div class="jpname">ロビンス　ドルー</div>
-          <div class="rname">Drew Robbins</div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="#/vote">
-        <img src="images/headshot.jpg" alt="" class="headshot">
-        <div class="container">
-          <div class="jpname">ロビンス　ドルー</div>
-          <div class="rname">Drew Robbins</div>
-        </div>
-      </a>
-    </li>
-    <li>
-      <a href="#/vote">
-        <img src="images/headshot.jpg" alt="" class="headshot">
-        <div class="container">
-          <div class="jpname">ロビンス　ドルー</div>
-          <div class="rname">Drew Robbins</div>
+          <div class="jpname">{{contestant.jpName}}</div>
+          <div class="rname">{{contestant.rName}}</div>
         </div>
       </a>
     </li>

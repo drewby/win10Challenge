@@ -3,18 +3,16 @@
 
 /**
  * @ngdoc function
- * @name win10ChallengeApp.controller:VoteCtrl
+ * @name win10App.controller:VoteCtrl
  * @description
  * # VoteCtrl
- * Controller of the win10ChallengeApp
+ * Controller of the win10App
  */
-angular.module('win10ChallengeApp')
-  .controller('VoteCtrl', function ($scope, $location) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
+angular.module('win10Controllers')
+  .controller('VoteCtrl', ['$scope', '$routeParams', '$location', 'Contestant', 
+    function ($scope, $routeParams, $location, Contestant) {
+    
+    $scope.contestant = Contestant.get({contestantId: $routeParams.contestantId});
     
     $scope.submitVote = function(some) {
       $location.path('main');
@@ -58,4 +56,4 @@ angular.module('win10ChallengeApp')
  
     voteOptions.captionElement = "#captionStory";
     $("#input-2").rating(voteOptions);
-  });
+  }]);

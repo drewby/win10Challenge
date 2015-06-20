@@ -1,11 +1,11 @@
 <div class="vote">
 	<div class="jumbotron">
 		<div class="contestant">
-			<img src="images/headshot.jpg" alt="" class="headshot">
+			<img ng-src="{{contestant.headshotUrl}}" alt="" class="headshot">
 			<div class="container">
-				<div class="jpname">ロビンス　ドルー</div>
-				<div class="title">Director</div>
-				<div class="department">DX</div>
+				<div class="jpname">{{contestant.jpName}}</div>
+				<div class="title">{{contestant.title}}</div>
+				<div class="department">{{contestant.department}}</div>
 			</div>
 		</div>
 		

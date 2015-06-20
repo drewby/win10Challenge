@@ -2,16 +2,13 @@
 
 /**
  * @ngdoc function
- * @name win10ChallengeApp.controller:MainCtrl
+ * @name win10App.controller:MainCtrl
  * @description
  * # MainCtrl
- * Controller of the win10ChallengeApp
+ * Controller of the win10App
  */
-angular.module('win10ChallengeApp')
-  .controller('MainCtrl', function ($scope) {
-    $scope.awesomeThings = [
-      'HTML5 Boilerplate',
-      'AngularJS',
-      'Karma'
-    ];
-  });
+angular.module('win10Controllers')
+  .controller('MainCtrl', ['$scope', 'Contestant', 
+    function ($scope, Contestant) {
+      $scope.contestants = Contestant.query();
+  }]);

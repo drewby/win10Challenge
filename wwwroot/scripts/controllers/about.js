@@ -2,12 +2,12 @@
 
 /**
  * @ngdoc function
- * @name win10ChallengeApp.controller:AboutCtrl
+ * @name win10App.controller:AboutCtrl
  * @description
  * # AboutCtrl
- * Controller of the win10ChallengeApp
+ * Controller of the win10App
  */
-angular.module('win10ChallengeApp')
+angular.module('win10Controllers')
   .controller('AboutCtrl', function ($scope) {
     $scope.awesomeThings = [
       'HTML5 Boilerplate',
