@@ -1,3 +1,4 @@
+/// <reference path="../../../typings/jquery/jquery.d.ts"/>
 /// <reference path="../../../typings/angularjs/angular.d.ts"/>
 'use strict';
 
@@ -9,13 +10,19 @@
  * Controller of the win10App
  */
 angular.module('win10Controllers')
-  .controller('VoteCtrl', ['$scope', '$routeParams', '$location', 'Contestant', 
-    function ($scope, $routeParams, $location, Contestant) {
+  .controller('VoteCtrl', ['$scope', '$routeParams', '$location', 'Contestant', 'SubmitVote', 
+    function ($scope, $routeParams, $location, Contestant, SubmitVote) {
     
     $scope.contestant = Contestant.get({contestantId: $routeParams.contestantId});
     
     $scope.submitVote = function(some) {
-      $location.path('main');
+      var contestantId = 'drobbins';
+      var value = $('#valueInput').val();
+      var impact = $('#impactInput').val();
+      
+      SubmitVote.send(contestantId, value, impact).then(function (success) {
+        $location.path('main');
+      });
     };
     
     var voteOptions = {
@@ -51,9 +58,9 @@ angular.module('win10Controllers')
       }
       };
     
-    voteOptions.captionElement = "#captionWinValue";
-    $("#input-1").rating(voteOptions);   
+    voteOptions.captionElement = "#captionValue";
+    $("#valueInput").rating(voteOptions);   
  
-    voteOptions.captionElement = "#captionStory";
-    $("#input-2").rating(voteOptions);
+    voteOptions.captionElement = "#captionImpact";
+    $("#impactInput").rating(voteOptions);
   }]);

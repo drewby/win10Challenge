@@ -1,0 +1,6 @@
+{
+	"AppSettings" : {
+		"EventHubConnection" : "Need Connection String",
+		"EventHubName" : "win10Challenge"
+	}	
+}

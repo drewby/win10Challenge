@@ -7,6 +7,9 @@
         "Microsoft.AspNet.Server.IIS": "1.0.0-beta4",
         "Microsoft.AspNet.Server.WebListener": "1.0.0-beta4",
         "Microsoft.AspNet.StaticFiles": "1.0.0-beta4",
+        "Microsoft.Framework.ConfigurationModel.Json": "1.0.0-beta4",
+        "Microsoft.WindowsAzure.ConfigurationManager": "3.1.0",
+        "WindowsAzure.ServiceBus": "2.7.2",
         "Kestrel": "1.0.0-beta4"
     },
 
