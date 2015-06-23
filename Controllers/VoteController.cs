@@ -34,9 +34,9 @@ namespace win10Challenge.Controllers
 			System.Console.WriteLine("Attempting post..." + clientId + ", " + vote.contestantId + ", " + vote.impact + ", " + vote.value);
 			
 			#if DNX451
-			var message = "{ \"contestantId\" : \"drobbins\", \"guid\": \"" + Guid.NewGuid().ToString() + "\" }";
-
 			try {
+				var message = String.Format("{{ \"clientId\" : \"{0}\", \"contestantId\" : \"{1}\", \"value\" : {2}, \"impact\" : {3} }}", clientId, vote.contestantId, vote.value, vote.impact);
+
 				var eventHubClient = EventHubClient.CreateFromConnectionString(_connectionString, _eventHubName);
 				eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes(message)));
 			} catch (Exception e)
