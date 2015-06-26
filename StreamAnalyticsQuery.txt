@@ -1,0 +1,21 @@
+SELECT
+    clientId as Voter,
+    contestantId as Contestant,
+    value as Value,
+    impact as Impact, 
+    (value+impact)/2 as Score
+INTO
+    win10challengeBI
+FROM
+    win10challenge;
+    
+SELECT
+    AVG(value) as [Average Value], 
+    AVG(impact) as [Average Impact], 
+    COUNT(*) as [Total Votes],
+    System.TimeStamp as [Out Time]
+INTO
+    win10challengeBIaggregate
+FROM
+    win10challenge
+GROUP BY HoppingWindow(second, 30, 5);

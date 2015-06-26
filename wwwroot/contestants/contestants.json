@@ -8,25 +8,25 @@
       {
         "id" : "jondoe",
         "jpName" : "ロビンス　ドルー",
-        "rName" : "Drew Robbins",
+        "rName" : "Jon Doe",
         "headshotUrl" : "images/headshot.jpg"
       },
       {
         "id" : "frankenstein",
         "jpName" : "ロビンス　ドルー",
-        "rName" : "Drew Robbins",
+        "rName" : "Frank N Stein",
         "headshotUrl" : "images/headshot.jpg"
       },
       {
         "id" : "billybob",
         "jpName" : "ロビンス　ドルー",
-        "rName" : "Drew Robbins",
+        "rName" : "Billy Bob",
         "headshotUrl" : "images/headshot.jpg"
       },
       {
         "id" : "janedoe",
         "jpName" : "ロビンス　ドルー",
-        "rName" : "Drew Robbins",
+        "rName" : "Jane Doe",
         "headshotUrl" : "images/headshot.jpg"
       }
 ]

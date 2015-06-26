@@ -29,6 +29,12 @@ gulp.task('compass', function() {
     .pipe(gulp.dest('wwwroot/styles'));
 });
 
+gulp.task('minify-css', function() {
+  return gulp.src('./wwwroot/*.css')
+    .pipe(minifyCSS())
+    .pipe(gulp.dest('wwwroot/styles'));
+});
+
 gulp.task('compass-watch', function() {
   gulp.watch(['wwwroot/styles/*.scss'], ['compass']);
 });

@@ -13,10 +13,13 @@ angular.module('win10Controllers')
   .controller('VoteCtrl', ['$scope', '$routeParams', '$location', 'Contestant', 'SubmitVote', 
     function ($scope, $routeParams, $location, Contestant, SubmitVote) {
     
-    $scope.contestant = Contestant.get({contestantId: $routeParams.contestantId});
+    Contestant.get({contestantId: $routeParams.contestantId}, function(contestant) {
+      $scope.contestant = contestant ;
+      $scope.contestant.contestantId = $routeParams.contestantId;
+    });
     
     $scope.submitVote = function(some) {
-      var contestantId = 'drobbins';
+      var contestantId = $('#contestantId').val();
       var value = $('#valueInput').val();
       var impact = $('#impactInput').val();
       

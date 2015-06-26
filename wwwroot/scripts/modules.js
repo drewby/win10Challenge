@@ -2,13 +2,13 @@
 
 angular
   .module('win10App', [
-    'ngAnimate',
-    'ngAria',
+    // 'ngAnimate',
+    // 'ngAria',
     'ngCookies',
     'ngResource',
     'ngRoute',
-    'ngSanitize',
-    'ngTouch',
+    // 'ngSanitize',
+    // 'ngTouch',
     'win10Services',
     'win10Controllers'
   ]);
