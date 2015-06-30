@@ -13,5 +13,5 @@ angular
     'win10Controllers'
   ]);
   
-angular.module('win10Controllers', []);
+angular.module('win10Controllers', ['ui.bootstrap']);
 angular.module('win10Services', ['ngResource']);

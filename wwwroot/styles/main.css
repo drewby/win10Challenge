@@ -7319,10 +7319,6 @@ button.close {
     display: none !important;
   }
 }
-html {
-  font-family: "Segoe UI", Helvetica, Arial, Sans-Serif;
-}
-
 .browsehappy {
   margin: 0.2em 0;
   background: #ccc;
@@ -7332,6 +7328,7 @@ html {
 
 body {
   padding: 0;
+  font-family: "Segoe UI", Helvetica, Arial, Sans-Serif;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -7346,13 +7343,19 @@ body {
 .header {
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
+  font-family: "Segoe UI Light";
   /* Make the masthead heading the same height as the navigation */
 }
 .header .title {
+  font-size: 2.5em;
   margin-top: 0;
   margin-bottom: 0;
   line-height: 40px;
   padding-bottom: 19px;
+  color: black;
+}
+.header .title .blue {
+  color: blue;
 }
 
 /* Custom page footer */

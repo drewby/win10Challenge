@@ -6,7 +6,6 @@ $icon-font-path: "../lib/bootstrap-sass-official/fonts/bootstrap/";
 $windows-blue: blue;
 
 html {
-  font-family: "Segoe UI", Helvetica, Arial, Sans-Serif;
 }
 
 .browsehappy {
@@ -18,6 +17,7 @@ html {
 
 body {
   padding: 0;
+  font-family: "Segoe UI", Helvetica, Arial, Sans-Serif;
 }
 
 /* Everything but the jumbotron gets side spacing for mobile first views */
@@ -27,18 +27,25 @@ body {
   padding-left: 15px;
   padding-right: 15px;
 }
- 
+  
 /* Custom page header */
 .header {
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
+  font-family: "Segoe UI Light";
 
   /* Make the masthead heading the same height as the navigation */
   .title {
+    font-size:2.5em;
     margin-top: 0;
     margin-bottom: 0;
     line-height: 40px;
     padding-bottom: 19px;
+    color: black;
+    
+    .blue {
+      color: $windows-blue;
+    }
   }
 }
 

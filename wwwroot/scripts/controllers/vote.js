@@ -10,8 +10,8 @@
  * Controller of the win10App
  */
 angular.module('win10Controllers')
-  .controller('VoteCtrl', ['$scope', '$routeParams', '$location', 'Contestant', 'SubmitVote', 
-    function ($scope, $routeParams, $location, Contestant, SubmitVote) {
+  .controller('VoteCtrl', ['$scope', '$routeParams', '$location', 'Contestant', 'SubmitVote', '$modal', 
+    function ($scope, $routeParams, $location, Contestant, SubmitVote, $modal) {
     
     Contestant.get({contestantId: $routeParams.contestantId}, function(contestant) {
       $scope.contestant = contestant ;
@@ -24,7 +24,17 @@ angular.module('win10Controllers')
       var impact = $('#impactInput').val();
       
       SubmitVote.send(contestantId, value, impact).then(function (success) {
-        $location.path('main');
+           var modalInstance = $modal.open({
+                animation: true,
+                templateUrl: 'voteAccepted.html',
+                size: 'sm'
+           });
+
+            modalInstance.result.then(function (selectedItem) {
+                $location.path('main');
+            });
+
+        
       });
     };
     

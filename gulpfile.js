@@ -49,6 +49,7 @@ gulp.task("copy", ["clean"], function () {
     "bootstrap-touch-carousel": "bootstrap-touch-carousel/dist/**/*.{js,css}",
     "bootstrap-sass-official": "bootstrap-sass-official/assets/**/*.{js,map,scss,ttf,svg,woff,eot}",
     "bootstrap-star-rating": "bootstrap-star-rating/**/*.{js,css,gif}",
+    "ui-bootstrap": "ui-bootstrap/ui-bootstrap*.js",    
     "hammer.js": "hammer.js/hammer*.{js,map}",
     "jquery": "jquery/dist/jquery*.{js,map}",
     "jquery-validation": "jquery-validation/jquery.validate.js",
