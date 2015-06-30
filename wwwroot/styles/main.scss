@@ -30,12 +30,14 @@ body {
   
 /* Custom page header */
 .header {
+  text-align: center;
   border-bottom: 1px solid #e5e5e5;
   margin-bottom: 10px;
   font-family: "Segoe UI Light";
 
   /* Make the masthead heading the same height as the navigation */
   .title {
+    text-align: center;
     font-size:2.5em;
     margin-top: 0;
     margin-bottom: 0;
