@@ -10,13 +10,20 @@
  * Controller of the win10App
  */
 angular.module('win10Controllers')
-  .controller('VoteCtrl', ['$scope', '$routeParams', '$location', 'Contestant', 'SubmitVote', '$modal', 
-    function ($scope, $routeParams, $location, Contestant, SubmitVote, $modal) {
+  .controller('VoteCtrl', ['$scope', '$routeParams', '$location', '$timeout', '$cookies', 'Contestant', 'SubmitVote', '$modal', 
+    function ($scope, $routeParams, $location, $timeout, $cookies, Contestant, SubmitVote, $modal) {
+    
+    var voted = $cookies.get($routeParams.contestantId);
     
     Contestant.get({contestantId: $routeParams.contestantId}, function(contestant) {
       $scope.contestant = contestant ;
       $scope.contestant.contestantId = $routeParams.contestantId;
+      $scope.contestant.voted = voted;
     });
+    
+    $scope.goBack = function() {
+      $location.path('main');
+    };
     
     $scope.submitVote = function(some) {
       var contestantId = $('#contestantId').val();
@@ -29,12 +36,16 @@ angular.module('win10Controllers')
                 templateUrl: 'voteAccepted.html',
                 size: 'sm'
            });
+           
+           $timeout(function() {
+             $cookies.put(contestantId, true);
+             modalInstance.close();
+             $location.path('main');
+           }, 2000);
 
-            modalInstance.result.then(function (selectedItem) {
-                $location.path('main');
-            });
-
-        
+            // modalInstance.result.then(function (selectedItem) {
+            //     $location.path('main');
+            // });
       });
     };
     
@@ -54,7 +65,7 @@ angular.module('win10Controllers')
         6: 'Wow',
         7: 'Amazing',
         8: 'Incredible',
-        9: 'Segoi!',
+        9: 'Sugoi!',
         10: 'Send to MGX!'  
       },
       starCaptionClasses: {

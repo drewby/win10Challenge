@@ -3,9 +3,6 @@
         <div class="modal-body">
            ありがとうございました！
         </div>
-        <div class="modal-footer">
-            <button class="btn btn-primary" ng-click="$close()">OK</button>
-        </div>
     </script>
 
 	<div class="jumbotron">
@@ -19,25 +16,37 @@
 		</div>
 		
 		<input type="hidden" id="contestantId" value="{{contestant.contestantId}}">
+	
+		<div id="#voted" ng-show="contestant.voted" class=".ng-hide">
+			<div class="votedText">You already voted for this demo.</div>	
+			<button type="submit" class="btn btn-primary" ng-click="goBack()">Go Back</button>
+		</div>
+				
+		<div id="#votePanel" ng-hide="contestant.voted" class=".ng-hide">
 		
-		<div class="question">
-			<h3>Windows 10 Value (50%)</h3>
-			<div class="description">How well does this video show the great things you can do with Windows 10?</div>
-			<div class="voteHere">
-				<div id="captionValue" class="caption"></div>
-				<input id="valueInput" class="rating">
+			<div class="question">
+				<h3>Windows 10 Value (50%)</h3>
+				<div class="description">このデモがどれだけ Windows 10 を使って実現できる素晴らしいことを表現できているか、点数をつけてください。</div>
+				<div class="description">Please rate how well does this demo shows the great things you can do with Windows 10.</div>
+				<div class="voteHere">
+					<div id="captionValue" class="caption"></div>
+					<input id="valueInput" class="rating">
+				</div>
 			</div>
-		</div>
-		<div class="question">
-			<h3>Storytelling & Impact (50%)</h3>
-			<div class="description">How well does this video show the great things you can do with Windows 10?</div>
-			<div class="voteHere">
-				<div id="captionImpact" class="caption"></div>
-				<input id="impactInput" class="rating">
+			
+			<div class="question">
+				<h3>Storytelling & Impact (50%)</h3>
+				<div class="description">このデモが人の注目を集めるために、どれだけ上手く製品をストーリーを語れているか、またプレゼンテーションの技術がどうか、点数をつけてください</div>
+				<div class="description">Please rate how well the demo uses storytelling and presentation skills to deliver a compelling demo.</div>
+				<div class="voteHere">
+					<div id="captionImpact" class="caption"></div>
+					<input id="impactInput" class="rating">
+				</div>
 			</div>
-		</div>
-		<div class="submit">
-			<button type="submit" class="btn btn-primary" ng-click="submitVote()">Vote</button>
+			<div class="submit">
+				<button type="submit" class="btn btn-primary" ng-click="submitVote()">Vote</button>
+			</div>
+			
 		</div>
 	</div>
 </div>

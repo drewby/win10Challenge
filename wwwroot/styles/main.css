@@ -7382,6 +7382,10 @@ body {
   padding: 14px 24px;
 }
 
+.vote .votedText {
+  font-size: 2em;
+  padding: 20px;
+}
 .vote .contestant {
   text-align: left;
 }
@@ -7426,6 +7430,10 @@ body {
 .contestants {
   list-style: none;
   padding-left: 0px;
+}
+.contestants .voted {
+  color: green;
+  font-size: 1.2em;
 }
 .contestants li {
   clear: both;
