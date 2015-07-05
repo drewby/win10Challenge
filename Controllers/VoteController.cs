@@ -7,6 +7,7 @@ using Microsoft.ServiceBus.Messaging;
 using System.Text;
 using Microsoft.Framework.ConfigurationModel;
 using win10Challenge.Models;
+using System.Diagnostics;
 
 namespace win10Challenge.Controllers
 {
@@ -25,29 +26,36 @@ namespace win10Challenge.Controllers
 		[HttpPost]
 		public IActionResult Post([FromBody] Vote vote)
 		{	
+		
 			var clientId = Context.Request.Cookies.Get("clientId");
 			if (String.IsNullOrEmpty(clientId)) {
 				clientId = Guid.NewGuid().ToString();
 				Context.Response.Cookies.Append("clientId", clientId);
 			}
 			
-			System.Console.WriteLine("Attempting post..." + clientId + ", " + vote.contestantId + ", " + vote.impact + ", " + vote.value);
+			Trace.WriteLine("Attempting post..." + clientId + ", " + vote.contestantId + ", " + vote.impact + ", " + vote.value);
 			
 			#if DNX451
 			try {
 				var message = String.Format("{{ \"clientId\" : \"{0}\", \"contestantId\" : \"{1}\", \"value\" : {2}, \"impact\" : {3} }}", clientId, vote.contestantId, vote.value, vote.impact);
 
+				Trace.Write(message);
+
 				var eventHubClient = EventHubClient.CreateFromConnectionString(_connectionString, _eventHubName);
+				Trace.Write("eventHubClient instantiated");
 				eventHubClient.Send(new EventData(Encoding.UTF8.GetBytes(message)));
+				Trace.Write("Completed sending message.");
 			} catch (Exception e)
 			{
 				System.Diagnostics.EventLog.WriteEntry("Win10Challenge", "Exception: " + e.Message);
+				System.Diagnostics.Trace.Write(e.Message);
 				return new HttpStatusCodeResult(500);
 			}
 			
 			return new HttpStatusCodeResult(200);
          	#else
-			 	return new HttpStatusCodeResult(500);;
+				System.Diagnostics.Trace.Write("Runtime environment does not support event hubs.");
+			 	return new HttpStatusCodeResult(500);
 				// throw new Exception("Runtime environment does not support event hubs.");
 			#endif
 		}
