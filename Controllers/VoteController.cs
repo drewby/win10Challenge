@@ -26,6 +26,7 @@ namespace win10Challenge.Controllers
 		[HttpPost]
 		public IActionResult Post([FromBody] Vote vote)
 		{	
+			Trace.WriteLine("Checking cookies");
 		
 			var clientId = Context.Request.Cookies.Get("clientId");
 			if (String.IsNullOrEmpty(clientId)) {
@@ -47,14 +48,14 @@ namespace win10Challenge.Controllers
 				Trace.Write("Completed sending message.");
 			} catch (Exception e)
 			{
-				System.Diagnostics.EventLog.WriteEntry("Win10Challenge", "Exception: " + e.Message);
-				System.Diagnostics.Trace.Write(e.Message);
+				EventLog.WriteEntry("Win10Challenge", "Exception: " + e.Message);
+				Trace.Write(e.Message);
 				return new HttpStatusCodeResult(500);
 			}
 			
 			return new HttpStatusCodeResult(200);
          	#else
-				System.Diagnostics.Trace.Write("Runtime environment does not support event hubs.");
+				Trace.Write("Runtime environment does not support event hubs.");
 			 	return new HttpStatusCodeResult(500);
 				// throw new Exception("Runtime environment does not support event hubs.");
 			#endif
