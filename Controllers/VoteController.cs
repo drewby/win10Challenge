@@ -22,6 +22,11 @@ namespace win10Challenge.Controllers
 			_eventHubName = config["AppSettings:EventHubName"];
 		}
 		
+		[HttpGet]
+		public string Get()
+		{
+			return "Hello World";
+		}
 		
 		[HttpPost]
 		public IActionResult Post([FromBody] Vote vote)
