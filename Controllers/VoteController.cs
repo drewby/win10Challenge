@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNet.Mvc;
 using Microsoft.ServiceBus.Messaging;
 using System.Text;
-using Microsoft.Framework.ConfigurationModel;
+using Microsoft.Framework.Configuration;
 using win10Challenge.Models;
 using System.Diagnostics;
 
@@ -48,6 +48,7 @@ namespace win10Challenge.Controllers
 				Trace.Write("Completed sending message.");
 			} catch (Exception e)
 			{
+				
 				EventLog.WriteEntry("Win10Challenge", "Exception: " + e.Message);
 				Trace.Write(e.Message);
 				return new HttpStatusCodeResult(500);
