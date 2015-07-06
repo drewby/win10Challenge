@@ -8,18 +8,19 @@ using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Routing;
 using Microsoft.AspNet.StaticFiles;
 using Microsoft.Framework.DependencyInjection;
-using Microsoft.Framework.ConfigurationModel;
+using Microsoft.Framework.Configuration;
+using Microsoft.Framework.Runtime;
 
 namespace win10Challenge
 {
     public class Startup
     {
-        public Startup(IHostingEnvironment env)
+        public Startup(IHostingEnvironment env, IApplicationEnvironment appEnv)
         {
             System.Console.WriteLine(env.EnvironmentName);
             
             // Setup configuration sources.
-            var configuration = new Configuration()
+            var configuration = new ConfigurationBuilder(appEnv.ApplicationBasePath)
                 .AddJsonFile("config.json")
                 .AddJsonFile($"config.{env.EnvironmentName}.json", optional: true);
 
@@ -28,7 +29,7 @@ namespace win10Challenge
             Configuration = configuration;
         }
 
-        public IConfiguration Configuration { get; set; }
+        public IConfigurationBuilder Configuration { get; set; }
 
         // This method gets called by a runtime.
         // Use this method to add services to the container
