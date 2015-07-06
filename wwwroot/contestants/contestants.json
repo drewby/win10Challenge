@@ -1,32 +1,20 @@
 [
       {
-        "id" : "drobbins",
-        "jpName" : "ロビンス　ドルー",
-        "rName" : "Drew Robbins",
-        "headshotUrl" : "images/headshot.jpg"
+        "id" : "KaorukoAbe",
+        "jpName" : "阿部 薫子",
+        "rName" : "Kaoruko Abe",
+        "headshotUrl" : "images/KaorukoAbe.jpg"
       },
       {
-        "id" : "jondoe",
-        "jpName" : "ロビンス　ドルー",
-        "rName" : "Jon Doe",
-        "headshotUrl" : "images/headshot.jpg"
+        "id" : "JunNoake",
+        "jpName" : "野明 純",
+        "rName" : "Jun Noake",
+        "headshotUrl" : "images/JunNoake.jpg"
       },
       {
-        "id" : "frankenstein",
-        "jpName" : "ロビンス　ドルー",
-        "rName" : "Frank N Stein",
-        "headshotUrl" : "images/headshot.jpg"
-      },
-      {
-        "id" : "billybob",
-        "jpName" : "ロビンス　ドルー",
-        "rName" : "Billy Bob",
-        "headshotUrl" : "images/headshot.jpg"
-      },
-      {
-        "id" : "janedoe",
-        "jpName" : "ロビンス　ドルー",
-        "rName" : "Jane Doe",
+        "id" : "TakeshiMuto",
+        "jpName" : "武藤 武史",
+        "rName" : "Takeshi Muto",
         "headshotUrl" : "images/headshot.jpg"
       }
 ]

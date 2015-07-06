@@ -72,6 +72,11 @@ body {
     font-size: 21px;
     padding: 14px 24px;
   }
+  
+  .message {
+    font-size: 1.5em;
+  }
+
 } 
 
 .vote {
@@ -139,6 +144,7 @@ body {
 .contestants {
   list-style: none;
   padding-left: 0px;
+
 
   .voted {
     color: green;

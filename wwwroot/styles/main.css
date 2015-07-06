@@ -7381,6 +7381,9 @@ body {
   font-size: 21px;
   padding: 14px 24px;
 }
+.jumbotron .message {
+  font-size: 1.5em;
+}
 
 .vote .votedText {
   font-size: 2em;
