@@ -13,6 +13,17 @@ angular.module('win10Controllers')
   .controller('VoteCtrl', ['$scope', '$routeParams', '$location', '$timeout', '$cookies', 'Contestant', 'SubmitVote', '$modal', 
     function ($scope, $routeParams, $location, $timeout, $cookies, Contestant, SubmitVote, $modal) {
     
+       // Required - set to true on submission
+    $scope.isSubmitting = null;
+  
+    // Required - set to 'success' or 'error' on success/failure
+    $scope.result = null;
+  
+    // Optional
+    $scope.options = {
+      
+    };
+    
     var voted = $cookies.get($routeParams.contestantId);
     
     Contestant.get({contestantId: $routeParams.contestantId}, function(contestant) {
@@ -30,7 +41,14 @@ angular.module('win10Controllers')
       var value = $('#valueInput').val();
       var impact = $('#impactInput').val();
       
+      $scope.error = '';
+      $scope.isSubmitting = true;
+      
       SubmitVote.send(contestantId, value, impact).then(function (success) {
+           
+           $scope.result = 'success';
+           $scope.isSubmitting = null;
+           
            var modalInstance = $modal.open({
                 animation: true,
                 templateUrl: 'voteAccepted.html',
@@ -46,6 +64,10 @@ angular.module('win10Controllers')
             // modalInstance.result.then(function (selectedItem) {
             //     $location.path('main');
             // });
+      }, function(error) {
+         $scope.result = 'error';
+         $scope.isSubmitting = null;
+         $scope.error = true;
       });
     };
     

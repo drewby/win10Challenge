@@ -8,12 +8,25 @@
  * Controller of the win10App
  */
 angular.module('win10Controllers')
-  .controller('MainCtrl', ['$scope', '$cookies', 'Contestant', 
-    function ($scope, $cookies, Contestant) {
-      Contestant.query(function(contestants) {
-        contestants.forEach(function(contestant) {
-            contestant.voted = $cookies.get(contestant.id);
+  .controller('MainCtrl', ['$scope', '$cookies', '$location', 'Contestant', 
+    function ($scope, $cookies, $location, Contestant) {
+      function updateList() {
+          Contestant.query(function(contestants) {
+          contestants.forEach(function(contestant) {
+              contestant.voted = $cookies.get(contestant.id);
+          });
+          $scope.contestants = contestants; 
         });
-        $scope.contestants = contestants; 
-      });
+      }
+      
+      $scope.clearVotes = function() {
+        $scope.contestants.forEach(function(contestant) {
+            $cookies.remove(contestant.id);
+        });
+        
+        
+      };
+ 
+      updateList();
+      
   }]);

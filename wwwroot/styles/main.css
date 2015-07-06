@@ -7384,6 +7384,10 @@ body {
 .jumbotron .message {
   font-size: 1.5em;
 }
+.jumbotron .error {
+  color: red;
+  padding: 5px;
+}
 
 .vote .votedText {
   font-size: 2em;

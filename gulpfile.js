@@ -61,6 +61,7 @@ gulp.task("copy", ["clean"], function () {
     "angular-route": "angular-route/*.js",
     "angular-sanitize": "angular-sanitize/*.js",
     "angular-touch": "angular-touch/*.js",
+    "ng-bs-animated-button" : "ng-bs-animated-button/*.{js,css}"
   };
 
   for (var destinationDir in bower) {

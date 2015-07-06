@@ -10,7 +10,8 @@ angular
     // 'ngSanitize',
     // 'ngTouch',
     'win10Services',
-    'win10Controllers'
+    'win10Controllers',
+    'jp.ng-bs-animated-button'
   ]);
   
 angular.module('win10Controllers', ['ui.bootstrap']);
