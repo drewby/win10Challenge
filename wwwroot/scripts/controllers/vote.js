@@ -40,35 +40,41 @@ angular.module('win10Controllers')
       var contestantId = $('#contestantId').val();
       var value = $('#valueInput').val();
       var impact = $('#impactInput').val();
-      
+            
       $scope.error = '';
-      $scope.isSubmitting = true;
+      $scope.voteBoth = '';
       
-      SubmitVote.send(contestantId, value, impact).then(function (success) {
-           
-           $scope.result = 'success';
+      if (value == 0 | impact == 0) {
+          $scope.voteBoth = true;
+      } else {
+        $scope.isSubmitting = true;
+  
+        SubmitVote.send(contestantId, value, impact).then(function (success) {
+             
+             $scope.result = 'success';
+             $scope.isSubmitting = null;
+             
+             var modalInstance = $modal.open({
+                  animation: true,
+                  templateUrl: 'voteAccepted.html',
+                  size: 'sm'
+             });
+             
+             $timeout(function() {
+               $cookies.put(contestantId, true);
+               modalInstance.close();
+               $location.path('main');
+             }, 2000);
+  
+              // modalInstance.result.then(function (selectedItem) {
+              //     $location.path('main');
+              // });
+        }, function(error) {
+           $scope.result = 'error';
            $scope.isSubmitting = null;
-           
-           var modalInstance = $modal.open({
-                animation: true,
-                templateUrl: 'voteAccepted.html',
-                size: 'sm'
-           });
-           
-           $timeout(function() {
-             $cookies.put(contestantId, true);
-             modalInstance.close();
-             $location.path('main');
-           }, 2000);
-
-            // modalInstance.result.then(function (selectedItem) {
-            //     $location.path('main');
-            // });
-      }, function(error) {
-         $scope.result = 'error';
-         $scope.isSubmitting = null;
-         $scope.error = true;
-      });
+           $scope.error = true;
+        });
+      }
     };
     
     var voteOptions = {
