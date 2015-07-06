@@ -3,15 +3,14 @@
     "version": "1.0.0-*",
 
     "dependencies": {
-        "Microsoft.AspNet.Mvc": "6.0.0-beta5",
-        "Microsoft.AspNet.Server.IIS": "1.0.0-beta5",
-        "Microsoft.AspNet.Server.WebListener": "1.0.0-beta5",
-        "Microsoft.AspNet.StaticFiles": "1.0.0-beta5",
-        "Microsoft.Framework.Configuration.Json": "1.0.0-beta5",
-        "Microsoft.Framework.Configuration.EnvironmentVariables": "1.0.0-beta5",
+        "Microsoft.AspNet.Mvc": "6.0.0-beta4",
+        "Microsoft.AspNet.Server.IIS": "1.0.0-beta4",
+        "Microsoft.AspNet.Server.WebListener": "1.0.0-beta4",
+        "Microsoft.AspNet.StaticFiles": "1.0.0-beta4",
+        "Microsoft.Framework.ConfigurationModel.Json": "1.0.0-beta4",
         "Microsoft.WindowsAzure.ConfigurationManager": "3.1.0",
         "WindowsAzure.ServiceBus": "2.7.2",
-        "Kestrel": "1.0.0-beta5"
+        "Kestrel": "1.0.0-beta4"
     },
 
     "commands": {
