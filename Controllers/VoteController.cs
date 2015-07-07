@@ -22,6 +22,7 @@ namespace win10Challenge.Controllers
 			_eventHubName = config["AppSettings:EventHubName"];
 		}
 		
+		string[] allowedContestant = { "JunNoake", "KaorukoAbe", "TakeshiMuto" };
 		
 		[HttpPost]
 		public IActionResult Post([FromBody] Vote vote)
@@ -34,6 +35,10 @@ namespace win10Challenge.Controllers
 				Context.Response.Cookies.Append("clientId", clientId);
 			}
 			
+			if (!allowedContestant.Contains(vote.contestantId)) {
+				return new HttpStatusCodeResult(400);
+			}
+				
 			Trace.WriteLine("Attempting post..." + clientId + ", " + vote.contestantId + ", " + vote.impact + ", " + vote.value);
 			
 			#if DNX451
