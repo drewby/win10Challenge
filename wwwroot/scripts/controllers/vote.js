@@ -84,6 +84,7 @@ angular.module('win10Controllers')
       'min' : 1,
       'max' : 10,
       'step' : 1,
+      'defaultCaption' : 'Not Rated',
       'starCaptions' : {
         1: 'OK',
         2: 'Good',
