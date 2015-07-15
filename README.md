@@ -9,6 +9,8 @@ able to use all the great tools available in Visual Studio,
 Microsoft Azure and PowerBI to create a quick web app 
 for the voting. 
 
+<img src="https://raw.githubusercontent.com/drewby/win10Challenge/master/PowerBIview.png" width="600px"/>
+
 The voting app uses ASP.NET vNext, AngularJS and sends 
 votes to Azure Event Hubs, which are collected and 
 transferred to Stream Analytics and finally visualized 
