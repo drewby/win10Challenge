@@ -24,8 +24,8 @@ resiliency provided by Event Hubs and the real time analytics
 provided by Stream Analytics and PowerBI,, we were able to 
 handle 1000s of votes in a very short period of time. 
 
-The app can be improved. This was a learning project 
-and would be great to get it on the latest releases of 
+The app can be improved as this was a learning project. It
+would be great to get it on the latest releases of 
 ASP.NET vNext (currently app is written for Beta4). Also 
 it could be made more generic as to handle other voting 
 scenarios, made more secure, native client apps, etc. 
