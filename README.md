@@ -64,6 +64,7 @@ View Connection String.
 because if you use Azure Web App git deploy, it will pull Beta5 (or current Beta).
 
    dnu restore
+   
    dnu publish --out C:\deploy --runtime dnx-clr-win-x86.1.0.0-beta4
    
 5. FTP the contents of C:\deploy to your Azure Web App "site" folder.
