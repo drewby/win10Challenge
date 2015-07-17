@@ -63,7 +63,10 @@ View Connection String.
   (use AppSettings:EventHubConnection and AppSettings:EventHubName as keys)
 
 4. From command line restore and publish your application using DNU. This is required
-because if you use Azure Web App git deploy, it will pull Beta5 (or current Beta).
+because if you use Azure Web App git deploy, it will pull Beta5 (or current Beta). Make sure
+you are building against Beta4.
+
+   dnvm install 1.0.0-beta4
 
    dnu restore
    
